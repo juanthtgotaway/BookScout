@@ -22,6 +22,7 @@ const startApolloServer = async () => {
 
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
+
   app.use('/graphql', expressMiddleware(server));
 
   
@@ -30,9 +31,9 @@ const startApolloServer = async () => {
     app.use(express.static(path.join(__dirname, '../client/build')));
   }
   
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-  });
+  // app.get('*', (req, res) => {
+  //   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  // });
 
   db.once('open', () => {
     app.listen(PORT, () => {
