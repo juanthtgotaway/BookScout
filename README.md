@@ -3,10 +3,8 @@
 ![Github license](https://shields.io/badge/license-MIT-orange)
 
 
-
-
 ## Description
-    
+The intent for this project was to create an app that would allow users to look up books and save them to their account. Along the way I learned a lot of things but are still learning on how to use GraphQL. 
 
 ![alt text](./assets/images/projects%20hover.png)
 
@@ -32,7 +30,7 @@ In order to install this project you will have to clone the repository:
 
 
 ## Usage
-This is used to display my work!
+This is used to save books!
 
 ## Credits
 
