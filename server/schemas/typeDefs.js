@@ -12,9 +12,9 @@ type Mutation {
 }
 
 type User {
-    _id: ID!
-    username: String!
-    email: String!
+    _id: ID
+    username: String
+    email: String
     bookCount: Int
     savedBooks: [Book]
 }
@@ -26,15 +26,6 @@ type Book {
     title: String
     image: String
     link: String
-}
-
-input BookInput {
-    description: String
-    title: String
-    bookId: ID!
-    image: String
-    link: String
-    authors: [String]
 }
 
 type Auth {

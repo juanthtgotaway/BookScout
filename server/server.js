@@ -1,19 +1,17 @@
 const express = require('express');
-const path = require('path');
-const db = require('./config/connection');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
-const { typeDefs, resolvers } = require('./schemas');
+const path = require('path');
 const { authMiddleware } = require('./utils/auth');
 
+const db = require('./config/connection');
+const { typeDefs, resolvers } = require('./schemas');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-
 const server = new ApolloServer ({
   typeDefs,
   resolvers,
-  context: authMiddleware
 });
 
 
@@ -23,7 +21,9 @@ const startApolloServer = async () => {
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
 
-  app.use('/graphql', expressMiddleware(server));
+  app.use('/graphql', expressMiddleware(server, {
+    context: authMiddleware
+  }));
 
   
   // if we're in production, serve client/build as static assets
@@ -31,9 +31,9 @@ const startApolloServer = async () => {
     app.use(express.static(path.join(__dirname, '../client/build')));
   }
   
-  // app.get('*', (req, res) => {
-  //   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-  // });
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  });
 
   db.once('open', () => {
     app.listen(PORT, () => {
