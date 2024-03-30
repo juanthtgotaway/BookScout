@@ -9,27 +9,28 @@ const resolvers = {
                 return userData;
             }
 
-            throw new AuthenticationError('You must log in!');
+            throw AuthenticationError;
         },
     },
 
     Mutation: {
-        addUser: async (parent, { username, email, password }) => {
-            const user = await User.create({ username, email, password });
+        addUser: async (parent, args) => {
+            const user = await User.create(args);
             const token = signToken(user);
-
+            console.log(user, "==========");
+            console.log(token, "===========");
             return { token, user};
         },
 
         login: async (parent, {email, password}) => {
             const user = await User.findOne({email});
             if(!user){
-                throw new AuthenticationError('Incorrect login information ☹️')
+                throw AuthenticationError
             }
 
             const correctCd = await user.isCorrectPassword(password);
             if(!correctCd){
-                throw new AuthenticationError('Incorrect login information ☹️')
+                throw AuthenticationError
             }
 
             const token  = signToken(user);
@@ -46,7 +47,7 @@ const resolvers = {
                 return updatedUser;
             }
 
-            throw new AuthenticationError('You must log in!');
+            throw AuthenticationError;
         },
 
         removeBook: async (parent, {bookId}, context) => {
@@ -60,7 +61,7 @@ const resolvers = {
                 return updatedUser;
             }
 
-            throw new AuthenticationError("You must login!")
+            throw AuthenticationError
         },
     },
 };
