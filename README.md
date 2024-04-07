@@ -1,12 +1,14 @@
 # BookScout
 
+https://bookscout.onrender.com
 ![Github license](https://shields.io/badge/license-MIT-orange)
-
+ 
+![alt text](./assets/home%20page.png)
 
 ## Description
-The intent for this project was to create an app that would allow users to look up books and save them to their account. Along the way I learned a lot of things but are still learning on how to use GraphQL. 
+The reason for this project was to make a platform where users could look up in books and save them to their account. This project was most definitely not easy by any means. Along the way I learned the following:
+*Making sure information is being destructured. After 2 tutor sessions reviewing similar error when loggin in or singing user up the chrome console would spit out error stating that there were issued with addUser however everything on the backend looked good. Turns out I needed to wrap my data in "{}" to make sure it was reading information properly. After that fix (suggested by our teacher Jay) this cleared up the issue and allowed to create user and log in. 
 
-![alt text](./assets/images/projects%20hover.png)
 
 ## Table of Contents
 -[Descriptions](#Descriptions)
@@ -17,6 +19,7 @@ The intent for this project was to create an app that would allow users to look 
 -[License](#License)
 -[Questions](##Questions)
 
+![alt text](./assets/booksrch.png)
 
 
 ## Installation
@@ -27,12 +30,18 @@ In order to install this project you will have to clone the repository:
             enter following: git@github.com:juanthtgotaway/BookScout.git
     4. Press enter to create your local clone
 
+![alt text](./assets/Saved%20books.png)
 
 
 ## Usage
 This is used to save books!
 
 ## Credits
+Major shout outs to my tutors that helped deploy this app and allow it to work: 
+* Rene Trevino
+* Jaytee Padilla
+* Sangeetha Kaliaperumal
+* Jay M (Prof.)
 
 
 ## Tests
